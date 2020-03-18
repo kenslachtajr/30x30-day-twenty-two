@@ -1,0 +1,18 @@
+<div class="container d-flex mt-3">
+  <div class="col-6">
+    <superheroes-ngrx-superheroes-list
+      [superheroes]="superheroes$ | async"
+      (selected)="selectSuperhero($event)"
+      (deleted)="deleteSuperhero($event)"
+    >
+    </superheroes-ngrx-superheroes-list>
+  </div>
+  <div class="col-6">
+    <superheroes-ngrx-superheroes-details
+      [form]="form"
+      [superhero]="selectedSuperhero$ | async"
+      (saved)="saveSuperhero($event)"
+      (cancelled)="resetSuperhero()"
+    ></superheroes-ngrx-superheroes-details>
+  </div>
+</div>

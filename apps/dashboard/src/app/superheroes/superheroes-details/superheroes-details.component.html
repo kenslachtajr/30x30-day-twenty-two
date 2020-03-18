@@ -1,0 +1,71 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h1>
+        <span *ngIf="currentSuperhero.id; else elseBlock">{{ originalTitle }}</span>
+        <ng-template #elseBlock>Select A Superhero</ng-template>
+      </h1>
+    </mat-card-title>
+  </mat-card-header>
+  <form [formGroup]="form" (submit)="saved.emit(currentSuperhero)">
+    <mat-card-content>
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Name"
+          formControlName="name"
+          type="text"
+          name="name"
+        />
+        <mat-error *ngIf="form.get('name')">Required Field</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Intelligence"
+          formControlName="intelligence"
+          type="text"
+          name="intelligence"
+        />
+        <mat-error *ngIf="form.get('intelligence')">Required Field</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Strength"
+          formControlName="strength"
+          type="text"
+          name="strength"
+        />
+        <mat-error *ngIf="form.get('strength')">Required Field</mat-error>
+      </mat-form-field>
+
+      <mat-form-field class="full-width">
+        <input
+          matInput
+          placeholder="Speed"
+          formControlName="speed"
+          type="text"
+          name="speed"
+        />
+        <mat-error *ngIf="form.get('speed')">Required Field</mat-error>
+      </mat-form-field>
+
+      <mat-card-actions>
+        <button
+          type="submit"
+          [disabled]="form.invalid"
+          mat-button
+          color="primary"
+        >
+          {{ currentSuperhero.id ? 'Save' : 'Create' }}
+        </button>
+        <button type="button" mat-button (click)="cancelled.emit(currentSuperhero)">
+          Cancel
+        </button>
+      </mat-card-actions>
+    </mat-card-content>
+  </form>
+</mat-card>

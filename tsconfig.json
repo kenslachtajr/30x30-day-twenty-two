@@ -15,7 +15,12 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
-    "paths": {}
+    "paths": {
+      "@superheroes-ngrx/core-data": ["libs/core-data/src/index.ts"],
+      "@superheroes-ngrx/core-state": ["libs/core-state/src/index.ts"],
+      "@superheroes-ngrx/material": ["libs/material/src/index.ts"],
+      "@superheroes-ngrx/ui-libraries": ["libs/ui-libraries/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }
